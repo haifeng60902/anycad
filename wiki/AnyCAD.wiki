@@ -7,5 +7,5 @@
 
 
 = Third Party Tools =
-* bullet  [WikiSyntax OpenCASCADE]
-* bullet  [WikiSyntax Boost.Python]
+  * [WikiSyntax OpenCASCADE]
+  * [WikiSyntax Boost.Python]
