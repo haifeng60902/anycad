@@ -8,4 +8,4 @@ AnyCAD Development documents.
 
 = Third Party Tools =
   * [WikiSyntax OpenCASCADE]
-  * [WikiSyntax BoostPython]
+  * BoostPython
