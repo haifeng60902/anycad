@@ -1,0 +1,6 @@
+#Feature Points.
+
+= Feature =
+
+ViewSizeFixed
+* Axes widget is such a node which size is fixed after scaling out/in the view.
