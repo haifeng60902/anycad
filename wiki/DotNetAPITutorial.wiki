@@ -58,6 +58,28 @@ view.Resize(Width, Height);
 // Call UpdateView when redrawing
 view.UpdateView();
 }}}
+===Add mouse event handler===
+{{{
+        private void OnMouseDown(object sender, MouseEventArgs e)
+        {
+            view.OnMouseDown(e);
+        }
+
+        private void OnMouseMove(object sender, MouseEventArgs e)
+        {
+            view.OnMouseMove(e);
+        }
+
+        private void OnMouseUp(object sender, MouseEventArgs e)
+        {
+            view.OnMouseUp(e);
+        }
+
+        private void OnMouseWheel(object sender, MouseEventArgs e)
+        {
+            view.OnMouseWheel(e);
+        }
+}}}
 ===Destroy View===
 {{{
 // Destroy the view before closing the window
