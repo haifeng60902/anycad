@@ -20,6 +20,17 @@ public AnyCAD.Platform.Document doc = new AnyCAD.Platform.Document();
 doc.NewDocument();
 }}}
 
+==Open the existing document==
+{{{
+            OpenFileDialog dlg = new OpenFileDialog();
+            dlg.Filter = "AnyCAD Viewer (*.aview)|*.aview";
+
+            if (DialogResult.OK == dlg.ShowDialog())
+            {
+                doc.OpenDocument(dlg.FileName);
+            }
+}}}
+
 ==Create your 3d view==
 {{{
 public AnyCAD.Presentation.View3d view = new AnyCAD.Presentation.View3d();
