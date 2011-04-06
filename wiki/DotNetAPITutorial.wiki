@@ -41,6 +41,34 @@ doc.NewDocument();
                 doc.SaveDocument(dlg.FileName);
             }
 }}}
+===Load Smart Model===
+Use Document::LoadComponent(fileName, shared) to load the smart model into the document as a TypeInstance. if shared is true, AnyCAD will reuse the existing model that has been loaded.
+
+Use InstanceElement to create an instance of the model.
+
+Use Document::AddElement to add the instance to the document.
+{{{
+            OpenFileDialog dlg = new OpenFileDialog();
+            dlg.Filter = "AnyCAD Smart Model (*.asmm)|*.asmm";
+
+            if (DialogResult.OK == dlg.ShowDialog())
+            {
+                // Load
+                int nId = doc.LoadComponent(dlg.FileName, true);
+                if (nId > 0)
+                {
+                    // Create 10 instance sharing the same Type.
+                    for (int ii = -10; ii < 10; ++ii)
+                    {
+                        InstanceElement insElem = doc.CreateInstance(nId);
+                        insElem.SetPosition(new Vector3(100 * ii, 100 * ii, 0));
+                        insElem.SetName("Instance:" + ii.ToString());
+                        doc.AddElement(insElem.AsElement());
+                    }
+
+                }
+            }
+}}}
 
 ==Manage 3d viewer==
 ===Create your 3d view===
