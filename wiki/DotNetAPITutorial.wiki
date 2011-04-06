@@ -1,7 +1,7 @@
 Integrate AnyCAD to your .Net application.
 
 
-==Initialize AnyCAD application ==
+==Initialize Application ==
 {{{
 public AnyCAD.Platform.Application app = new AnyCAD.Platform.Application();
 
@@ -14,13 +14,14 @@ app.Initialize();
 app.Destroy();
 }}}
 
-==Create the Document==
+==Manage Document==
+===Create the document===
 {{{
 public AnyCAD.Platform.Document doc = new AnyCAD.Platform.Document();
 doc.NewDocument();
 }}}
 
-==Open the existing document==
+===Open the existing document===
 {{{
             OpenFileDialog dlg = new OpenFileDialog();
             dlg.Filter = "AnyCAD Viewer (*.aview)|*.aview";
@@ -30,8 +31,19 @@ doc.NewDocument();
                 doc.OpenDocument(dlg.FileName);
             }
 }}}
+===Save document===
+{{{
+            SaveFileDialog dlg = new SaveFileDialog();
+            dlg.Filter = "AnyCAD Viewer (*.aview)|*.aview";
 
-==Create your 3d view==
+            if (DialogResult.OK == dlg.ShowDialog())
+            {
+                doc.SaveDocument(dlg.FileName);
+            }
+}}}
+
+==Manage 3d viewer==
+===Create your 3d view===
 {{{
 public AnyCAD.Presentation.View3d view = new AnyCAD.Presentation.View3d();
 
@@ -41,12 +53,12 @@ view.Initialize(Handle, doc);
 // resize the view to fit the window size
 view.Resize(Width, Height);
 }}}
-
+===Update View===
 {{{
 // Call UpdateView when redrawing
 view.UpdateView();
 }}}
-
+===Destroy View===
 {{{
 // Destroy the view before closing the window
 view.Destroy();
