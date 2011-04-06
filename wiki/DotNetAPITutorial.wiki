@@ -5,6 +5,16 @@ Integrate AnyCAD to your .Net application.
 Access the database model of AnyCAD.
 
 ==Application==
+{{{
+public AnyCAD.Platform.Application app = new AnyCAD.Platform.Application();
+
+// Initialize the AnyCAD before calling other APIs
+app.Initialize();
+
+// Release the resource before exiting your application
+app.Destroy();
+}}}
+
 ==Document==
 ==Element==
 ==InstanceElement==
