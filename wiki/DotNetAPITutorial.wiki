@@ -1,7 +1,7 @@
 Integrate AnyCAD to your .Net application.
 
 
-==Initialize Application ==
+=Initialize Application =
 {{{
 public AnyCAD.Platform.Application app = new AnyCAD.Platform.Application();
 
@@ -14,7 +14,7 @@ app.Initialize();
 app.Destroy();
 }}}
 
-==Manage Document==
+=Manage Document=
 ===Create ===
 {{{
 public AnyCAD.Platform.Document doc = new AnyCAD.Platform.Document();
@@ -70,7 +70,7 @@ Use Document::AddElement to add the instance to the document.
             }
 }}}
 
-==Manage 3d viewer==
+=Manage 3d viewer=
 ===Create your 3d view===
 {{{
 public AnyCAD.Presentation.View3d view = new AnyCAD.Presentation.View3d();
@@ -114,7 +114,7 @@ view.UpdateView();
 view.Destroy();
 }}}
 
-==Handle Event==
+=Handle Event=
 ===OnAddElement===
 When adding TypeElement and InstanceElement, OnAddElement is triggered.
 If you are only interested in InstanceElement, you can write the handler below:
