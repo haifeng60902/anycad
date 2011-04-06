@@ -1,26 +1,42 @@
 Integrate AnyCAD to your .Net application.
 
-= AnyCAD.Platform =
 
-Access the database model of AnyCAD.
-
-==Application==
+==Initialize AnyCAD application ==
 {{{
 public AnyCAD.Platform.Application app = new AnyCAD.Platform.Application();
 
 // Initialize the AnyCAD before calling other APIs
 app.Initialize();
+}}}
 
+{{{
 // Release the resource before exiting your application
 app.Destroy();
 }}}
 
-==Document==
-==Element==
-==InstanceElement==
-==TypeElement==
+==Create the Document==
+{{{
+public AnyCAD.Platform.Document doc = new AnyCAD.Platform.Document();
+doc.NewDocument();
+}}}
 
-= AnyCAD.Presentation =
+==Create your 3d view==
+{{{
+public AnyCAD.Presentation.View3d view = new AnyCAD.Presentation.View3d();
 
-Visualize the model of AnyCAD.
-==View3d==
+// Use your window's handle, and the document you create to initialize the view
+view.Initialize(Handle, doc);
+
+// resize the view to fit the window size
+view.Resize(Width, Height);
+}}}
+
+{{{
+// Call UpdateView when redrawing
+view.UpdateView();
+}}}
+
+{{{
+// Destroy the view before closing the window
+view.Destroy();
+}}}
