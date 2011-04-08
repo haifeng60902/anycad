@@ -41,7 +41,7 @@ doc.NewDocument();
                 doc.SaveDocument(dlg.FileName);
             }
 }}}
-==Load Smart Model==
+==Load Type ==
 Use Document::LoadComponent(fileName, shared) to load the smart model into the document as a TypeInstance. if shared is true, AnyCAD will reuse the existing model that has been loaded.
 
 Use InstanceElement to create an instance of the model.
@@ -92,8 +92,32 @@ for each(int id in ids)
    TypeElement type= elem.AsTypeElement();
 }
 }}}
+
+== Modify Element ==
+=== Transform ===
+Call InstanceElement::Regenerate((uint)RegenerateHint.Hint_Transform) to apply the changes
+{{{
+            ElementTable elemTable = doc.FindElementTable(ElementTable.InstanceElementTableId());
+            if (elemTable == null)
+                return;
+
+             Vector3 offset = new Vector3(0, 0, 100);
+            System.Collections.Generic.HashSet<int> ids = elemTable.GetElementIds();
+            foreach( int id in ids)
+            {
+                Element elem = doc.FindElement(id);
+                InstanceElement ins = elem.AsInstanceElement();
+
+                ins.SetPosition(ins.GetPosition() + offset);
+                uint nRegenHint = (uint)RegenerateHint.Hint_Transform;
+                ins.Regenerate(nRegenHint);
+            }
+
+            view.UpdateView();
+}}}
+
 =Manage 3d viewer=
-==Create your 3d view==
+==Create the 3d view==
 {{{
 public AnyCAD.Presentation.View3d view = new AnyCAD.Presentation.View3d();
 
@@ -162,5 +186,18 @@ When selecting a model in view, OnSelectElement event is triggered.
                     MessageBox.Show(elem.GetName(), "Select Element");
                 }
             }
+        }
+}}}
+
+==On Update Element==
+After moving an instance, you can receive the OnUpdateElement event
+{{{
+       view.OnUpdateElement += OnUpdateElement;
+
+        private void OnUpdateElement(Element pElement)
+        {
+            InstanceElement insElem = pElement.AsInstanceElement();
+            if (insElem != null)
+                MessageBox.Show(insElem.GetId().ToString(), "Moved!");
         }
 }}}
