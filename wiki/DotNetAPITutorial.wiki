@@ -70,6 +70,12 @@ Use Document::AddElement to add the instance to the document.
             }
 }}}
 
+== Find Elements==
+ElementTable
+=== Get all Instances ===
+
+=== Get all Types ===
+
 =Manage 3d viewer=
 ==Create your 3d view==
 {{{
@@ -115,7 +121,7 @@ view.Destroy();
 }}}
 
 =Handle Event=
-==OnAddElement==
+==On Add Element==
 When adding TypeElement and InstanceElement, OnAddElement is triggered.
 If you are only interested in InstanceElement, you can write the handler below:
 {{{
@@ -127,7 +133,7 @@ private void OnAddElement(Element pElement)
         }
 }}}
 
-==OnSelectElement==
+==On Select Element==
 When selecting a model in view, OnSelectElement event is triggered.
 {{{
         private void OnSelectElement(System.Collections.Generic.List<int> ids)
