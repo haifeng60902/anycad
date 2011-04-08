@@ -1,6 +1,5 @@
-
 Integrate AnyCAD to your .Net application.
-<wiki:toc max_depth="1" />
+<wiki:toc max_depth="2" />
 
 =Initialize Application =
 {{{
@@ -16,13 +15,13 @@ app.Destroy();
 }}}
 
 =Manage Document=
-===Create ===
+==Create ==
 {{{
 public AnyCAD.Platform.Document doc = new AnyCAD.Platform.Document();
 doc.NewDocument();
 }}}
 
-===Open===
+==Open==
 {{{
             OpenFileDialog dlg = new OpenFileDialog();
             dlg.Filter = "AnyCAD Viewer (*.aview)|*.aview";
@@ -32,7 +31,7 @@ doc.NewDocument();
                 doc.OpenDocument(dlg.FileName);
             }
 }}}
-===Save===
+==Save==
 {{{
             SaveFileDialog dlg = new SaveFileDialog();
             dlg.Filter = "AnyCAD Viewer (*.aview)|*.aview";
@@ -42,7 +41,7 @@ doc.NewDocument();
                 doc.SaveDocument(dlg.FileName);
             }
 }}}
-===Load Smart Model===
+==Load Smart Model==
 Use Document::LoadComponent(fileName, shared) to load the smart model into the document as a TypeInstance. if shared is true, AnyCAD will reuse the existing model that has been loaded.
 
 Use InstanceElement to create an instance of the model.
@@ -72,7 +71,7 @@ Use Document::AddElement to add the instance to the document.
 }}}
 
 =Manage 3d viewer=
-===Create your 3d view===
+==Create your 3d view==
 {{{
 public AnyCAD.Presentation.View3d view = new AnyCAD.Presentation.View3d();
 
@@ -82,12 +81,12 @@ view.Initialize(Handle, doc);
 // resize the view to fit the window size
 view.Resize(Width, Height);
 }}}
-===Draw View===
+==Draw View==
 {{{
 // Call UpdateView when redrawing
 view.UpdateView();
 }}}
-===Add mouse event handler===
+==Add mouse event handler==
 {{{
         private void OnMouseDown(object sender, MouseEventArgs e)
         {
@@ -109,14 +108,14 @@ view.UpdateView();
             view.OnMouseWheel(e);
         }
 }}}
-===Destroy View===
+==Destroy View==
 {{{
 // Destroy the view before closing the window
 view.Destroy();
 }}}
 
 =Handle Event=
-===OnAddElement===
+==OnAddElement==
 When adding TypeElement and InstanceElement, OnAddElement is triggered.
 If you are only interested in InstanceElement, you can write the handler below:
 {{{
@@ -128,7 +127,7 @@ private void OnAddElement(Element pElement)
         }
 }}}
 
-===OnSelectElement===
+==OnSelectElement==
 When selecting a model in view, OnSelectElement event is triggered.
 {{{
         private void OnSelectElement(System.Collections.Generic.List<int> ids)
