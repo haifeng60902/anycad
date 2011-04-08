@@ -1,5 +1,5 @@
 Integrate AnyCAD to your .Net application.
-<wiki:toc max_depth="2" />
+<wiki:toc max_depth="3" />
 
 =Initialize Application =
 {{{
@@ -73,9 +73,25 @@ Use Document::AddElement to add the instance to the document.
 == Find Elements==
 ElementTable
 === Get all Instances ===
-
+{{{
+ElementTable table = doc.FindElementTable(ElementTable.InstanceElementTableId());
+HashSet<int> ids = table.GetElementIds();
+for each(int id in ids)
+{
+   Element elem = doc.FindElement(id);
+   InstanceElement instance = elem.AsInstanceElement();
+}
+}}}
 === Get all Types ===
-
+{{{
+ElementTable table = doc.FindElementTable(ElementTable.TypeElementTableId());
+HashSet<int> ids = table.GetElementIds();
+for each(int id in ids)
+{
+   Element elem = doc.FindElement(id);
+   TypeElement type= elem.AsTypeElement();
+}
+}}}
 =Manage 3d viewer=
 ==Create your 3d view==
 {{{
