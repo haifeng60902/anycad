@@ -92,6 +92,14 @@ for each(int id in ids)
    TypeElement type= elem.AsTypeElement();
 }
 }}}
+=== Find the Type used by Instance ===
+{{{
+InstanceElement ins = ...
+int typeId = ins.GetTypeElementId();
+Element elem = doc.FindElement(typeId);
+TypeElement typeElem = elem.AsTypeElement()
+
+}}}
 
 == Modify Element ==
 === Transform ===
