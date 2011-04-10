@@ -2,9 +2,9 @@
 
 Type is the template of a geometry, which is like the "class" keyword in C++ language. 
 
-A *.asmm file can be considered as a Type.
+A .asmm file can be considered as a Type.
 
-In AnyCAD, Type is not visible in the view. If you want to display the type, you need to create an Instace for it.
+In AnyCAD, Type is not visible in the view. If you want to display the type, you need to create an Instance for it.
 
 
 = Instance =
