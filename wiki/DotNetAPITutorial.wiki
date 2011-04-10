@@ -53,7 +53,7 @@ Use Document::AddElement to add the instance to the document.
 
             if (DialogResult.OK == dlg.ShowDialog())
             {
-                // Load
+                // Load asmm file to document
                 int nId = doc.LoadComponent(dlg.FileName, true);
                 if (nId > 0)
                 {
