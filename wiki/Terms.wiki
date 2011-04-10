@@ -1,0 +1,24 @@
+
+= Type =
+
+Type is the template of a geometry, which is like the "class" keyword in C++ language.
+
+
+
+= Instance =
+
+Instance is the concrete object of the Type. For example:
+{{{
+class Type{};
+Type instance;
+}}}
+
+= Parameter = 
+Both Type and Instance can have parameters.
+
+== Type Parameter == 
+Type parameter is the property of Type.
+
+== Instance Parameter ==
+Instance  parameter is the property of Instance.
+Instances of the same Type share the same Type parameters.
