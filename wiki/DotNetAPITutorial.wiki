@@ -123,6 +123,22 @@ Call InstanceElement::Regenerate((uint)RegenerateHint.Hint_Transform) to apply t
 
             view.UpdateView();
 }}}
+==Parameters==
+===Find Parameters==
+{{{
+ParameterItemSet paramSet = instance.GetParameters();
+ParameterItem item = paramSet.FindParameter("ParamId");
+//....
+
+// iterate all the parameters
+ParameterIterator itr = paramSet.GetParameterIterator();
+for( itr.Begin; !itr.IsEnd(); itr.Next() )
+{
+  ParameterItem item = itr.Current();
+  //....
+}
+}}}
+
 
 =Manage 3d viewer=
 ==Create the 3d view==
