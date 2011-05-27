@@ -24,7 +24,7 @@ doc.NewDocument();
 ==Open==
 {{{
             OpenFileDialog dlg = new OpenFileDialog();
-            dlg.Filter = "AnyCAD Viewer (*.aview)|*.aview";
+            dlg.Filter = "AnyCAD Viewer (*.asd)|*.asd";
 
             if (DialogResult.OK == dlg.ShowDialog())
             {
