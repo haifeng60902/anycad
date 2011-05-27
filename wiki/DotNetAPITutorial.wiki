@@ -34,7 +34,7 @@ doc.NewDocument();
 ==Save==
 {{{
             SaveFileDialog dlg = new SaveFileDialog();
-            dlg.Filter = "AnyCAD Viewer (*.aview)|*.aview";
+            dlg.Filter = "AnyCAD Scene Desinger(*.asd)|*.asd";
 
             if (DialogResult.OK == dlg.ShowDialog())
             {
